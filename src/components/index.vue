@@ -67,7 +67,11 @@ export default {
   },
   mounted() {
     if(this.$data.modelVal){
-      this.$data.modelVal = this.mergeConfig.valueFormat ? this.$data.modelVal : new Date(parseInt(this.$data.modelVal));
+      this.$data.modelVal = this.mergeConfig.valueFormat ?
+        // modelVal is not changed. So we have to manually call it.
+        // so that the valueDigits logic works.
+        this._processModelVal(this.$data.modelVal) :
+        new Date(parseInt(this.$data.modelVal));
     }
   },
   data() {
