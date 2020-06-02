@@ -7,7 +7,7 @@
     :size="mergeConfig.size"
     :clearable="mergeConfig.clearable"
     v-show="!hidden"
-    v-model="modelVal"
+    v-model="pickerVal"
     :type="type"
     :format="mergeConfig.format || $nclang(typeOptions[type].format)"
     :value-format="mergeConfig.valueFormat"
@@ -65,17 +65,30 @@ export default {
       type: [String, Number],
     }
   },
+  watch: {
+    pickerVal(newv) {
+      this.modelVal = this._processModelVal(newv);
+    }
+  },
   mounted() {
-    if(this.$data.modelVal){
+    this.pickerVal = this.$data.modelVal;
+    if(this.$data.modelVal !== undefined){
       this.$data.modelVal = this.mergeConfig.valueFormat ?
         // modelVal is not changed. So we have to manually call it.
         // so that the valueDigits logic works.
         this._processModelVal(this.$data.modelVal) :
         new Date(parseInt(this.$data.modelVal));
     }
+    if (this.mergeConfig.valueFormat === 'timestamp' &&
+      typeof this.mergeConfig.valueDigits === 'number' &&
+      this.mergeConfig.valueDigits < 13
+    ) {
+      this.pickerVal = this.$data.modelVal * Math.pow(10, 13 - this.mergeConfig.valueDigits);
+    }
   },
   data() {
     return {
+      pickerVal: '',
       typeOptions: {
         year: {
           format: '',
