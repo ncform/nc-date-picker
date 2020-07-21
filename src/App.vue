@@ -8,7 +8,7 @@
     ></ncform>
     <hr />
     <pre>
-      {{JSON.stringify(formSchema.value, null, 2)}}
+      {{ JSON.stringify(formSchema.value, null, 2) }}
     </pre>
     <el-button @click="submit()">Submit</el-button>
   </div>
@@ -31,8 +31,8 @@ export default {
             ui: {
               widget: "nc-date-picker",
               widgetConfig: {
-                type: 'datetime',
-                valueFormat: 'yyyy-MM-dd HH:mm:ss'
+                type: "datetime",
+                valueFormat: "yyyy-MM-dd HH:mm:ss"
               }
             }
           },
@@ -42,8 +42,8 @@ export default {
             ui: {
               widget: "nc-date-picker",
               widgetConfig: {
-                type: 'datetime',
-                valueFormat: 'timestamp',
+                type: "datetime",
+                valueFormat: "timestamp",
                 valueDigits: 10
               }
             }
