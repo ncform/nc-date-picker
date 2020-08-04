@@ -155,6 +155,10 @@ export default {
             : ""
         }`;
       }
+      // When click clear datepicker, newVal will be null, and cause the loop again
+      if (isNaN(newVal)) {
+        return "";
+      }
       if (this.mergeConfig.valueFormat === "timestamp") {
         return +(newVal + "").substring(0, this.mergeConfig.valueDigits);
       }
