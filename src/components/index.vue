@@ -81,10 +81,8 @@ export default {
     }
 
     let pickerVal = this.$data.modelVal;
-    // Return NaN for picker value will cause a date-picker date loop
-    if (isNaN(pickerVal)) {
-      pickerVal = "";
-    } else {
+    // It's may be a timestamp value
+    if (typeof pickerVal === "number" || !isNaN(pickerVal)) {
       if (
         this.mergeConfig.valueFormat === "timestamp" &&
         typeof this.mergeConfig.valueDigits === "number" &&
@@ -93,6 +91,10 @@ export default {
         pickerVal =
           this.$data.modelVal * Math.pow(10, 13 - this.mergeConfig.valueDigits);
       }
+    } else if (!pickerVal) {
+      // NaN / null / undefined
+      // Return NaN for picker value will cause a date-picker date loop
+      pickerVal = "";
     }
     this.pickerVal = pickerVal;
   },
