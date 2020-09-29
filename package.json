@@ -1,6 +1,6 @@
 {
   "name": "@ncform/nc-date-picker",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ncform/nc-date-picker.git"
@@ -14,9 +14,9 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@ncform/ncform": "^1.3.3",
-    "@ncform/ncform-common": "^1.3.0",
-    "@ncform/ncform-theme-elementui": "^1.3.3",
+    "@ncform/ncform": "^1.7.1",
+    "@ncform/ncform-common": "^1.7.1",
+    "@ncform/ncform-theme-elementui": "^1.7.1",
     "axios": "^0.21.1",
     "core-js": "^2.6.5",
     "element-ui": "^2.8.2",
