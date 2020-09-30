@@ -149,6 +149,13 @@ export default {
     // 你可以通过该方法在modelVal传出去之前进行加工处理，即在this.$emit('input')之前
     _processModelVal(newVal) {
       if (this.mergeConfig.valueFormat !== "timestamp") {
+        // See: https://github.com/ElemeFE/element/blob/dc8bdc021e0149b8947bda826b5ee3b67be30ed7/packages/date-picker/src/picker.vue#L523-L537
+        // And https://github.com/ElemeFE/element/blob/dc8bdc021e0149b8947bda826b5ee3b67be30ed7/packages/date-picker/src/picker.vue#L139-L142
+        // If value Format='yyyyMMdd' but pickerValue is a timestamp value. then will cause an error
+        if (typeof newVal === "number") {
+          // timestamp value
+          return new Date(newVal);
+        }
         return `${
           newVal
             ? this.mergeConfig.valueFormat
