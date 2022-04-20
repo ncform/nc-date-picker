@@ -11,7 +11,9 @@
     "lint": "vue-cli-service lint",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "release": "./node_modules/.bin/verpub publish",
+    "release:dry": "./node_modules/.bin/verpub --dry-run"
   },
   "dependencies": {
     "@ncform/ncform": "^1.7.1",
@@ -35,9 +37,10 @@
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "lint-staged": "^8.1.5",
-    "vue-template-compiler": "^2.5.21",
+    "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
-    "node-sass": "^4.9.0"
+    "verpub": "^0.1.4",
+    "vue-template-compiler": "^2.5.21"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
@@ -50,9 +53,23 @@
   },
   "main": "dist/NcDatePicker.umd.js",
   "description": "ncform date-picker",
-  "author": "daniel.xiao",
+  "author": {
+    "name": "daniel.xiao"
+  },
   "keywords": [
     "ncform",
     "widget"
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/ncform/nc-date-picker/issues"
+  },
+  "readme": "ERROR: No README data found!",
+  "homepage": "https://github.com/ncform/nc-date-picker#readme",
+  "_id": "@ncform/nc-date-picker@0.1.8",
+  "verpub": {
+    "publish": {
+      "client": "npm"
+    },
+    "tag": "{name}@{version}"
+  }
 }
