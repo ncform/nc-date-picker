@@ -1,6 +1,6 @@
 {
   "name": "@ncform/nc-date-picker",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ncform/nc-date-picker.git"
@@ -65,11 +65,12 @@
   },
   "readme": "ERROR: No README data found!",
   "homepage": "https://github.com/ncform/nc-date-picker#readme",
-  "_id": "@ncform/nc-date-picker@0.1.8",
+  "_id": "@ncform/nc-date-picker@0.1.9",
   "verpub": {
     "publish": {
       "client": "npm"
     },
     "tag": "{name}@{version}"
-  }
+  },
+  "_commitid": "d5ba9af"
 }
