@@ -10,6 +10,7 @@
     <pre>
       {{ JSON.stringify(formSchema.value, null, 2) }}
     </pre>
+
     <el-button @click="submit()">Submit</el-button>
   </div>
 </template>
@@ -47,6 +48,17 @@ export default {
                 valueDigits: 10
               }
             }
+          },
+          defaultDemo: {
+            type: "string",
+            ui: {
+              widget: "nc-date-picker",
+              widgetConfig: {
+                type: "date",
+                valueFormat: "yyyy/MM/dd"
+              }
+            },
+            default: "dx: +new Date()"
           }
         },
         value: {}
